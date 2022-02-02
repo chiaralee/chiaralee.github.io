@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 页面点击小红心 -->
+    <script type="text/javascript" src="/js/love.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="巨大型面包菌">
+    
+    <title>
+        
+            【设计模式】Visitor-访问者 |
+        
+        Miibo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"chiaralee.gitee.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/favicon.ico","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"今天的你比昨天更博学了吗？"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.2"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Miibo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/category"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tag"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/category">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tag">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">【设计模式】Visitor-访问者</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">巨大型面包菌</span>
+                        
+                            <span class="author-label">国家一级打瞌睡表演艺术家</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-04-24 13:25:45
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/asm/">asm</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%AE%BF%E9%97%AE%E8%80%85/">访问者</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.3k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>7 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="访问者模式（Visitor-Pattern）"><a href="#访问者模式（Visitor-Pattern）" class="headerlink" title="访问者模式（Visitor Pattern）"></a>访问者模式（Visitor Pattern）</h1><blockquote>
+<p>在 <strong>内部结构不变的情况下</strong>，动态改变对于内部元素的动作</p>
+</blockquote>
+<h2 id="🌰举个栗子🌰"><a href="#🌰举个栗子🌰" class="headerlink" title="🌰举个栗子🌰"></a>🌰举个栗子🌰</h2><p>假设装机场景下，电脑有两个个部件：CPU、内存，不同的人来购买电脑，折扣不同</p>
+<p><img src="访问者.png" alt="访问者"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 访问者模式</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    PersonalVisitor visitor = <span class="keyword">new</span> PersonalVisitor();</span><br><span class="line"></span><br><span class="line">    ComputerPart cpu = <span class="keyword">new</span> CPU();</span><br><span class="line">    ComputerPart memory = <span class="keyword">new</span> Memory();</span><br><span class="line">    cpu.accept(visitor);</span><br><span class="line">    memory.accept(visitor);</span><br><span class="line"></span><br><span class="line">    System.out.println(visitor.totalPrice);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * CPU</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CPU</span> <span class="keyword">extends</span> <span class="title">ComputerPart</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(Visitor visitor)</span> </span>&#123;</span><br><span class="line">    visitor.visitCpu(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 内存</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Memory</span> <span class="keyword">extends</span> <span class="title">ComputerPart</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">accept</span><span class="params">(Visitor visitor)</span> </span>&#123;</span><br><span class="line">    visitor.visitMemory(<span class="keyword">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">100</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 电脑组件</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputerPart</span> </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 接待访问者</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@date</span> 2021/4/24 13:39</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> visitor 访问者</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Visitor visitor)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 价格查询</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@date</span> 2021/4/24 13:39</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> 价格</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">abstract</span> <span class="keyword">double</span> <span class="title">getPrice</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 访问者</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 获取CPU</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@date</span> 2021/4/24 13:39</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">visitCpu</span><span class="params">(CPU cpu)</span></span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 获取内存</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@date</span> 2021/4/24 13:40</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">visitMemory</span><span class="params">(Memory memory)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 个人用户</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PersonalVisitor</span> <span class="keyword">implements</span> <span class="title">Visitor</span> </span>&#123;</span><br><span class="line">  <span class="keyword">double</span> totalPrice = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitCpu</span><span class="params">(CPU cpu)</span> </span>&#123;</span><br><span class="line">    totalPrice += cpu.getPrice() * <span class="number">0.9</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitMemory</span><span class="params">(Memory memory)</span> </span>&#123;</span><br><span class="line">    totalPrice += memory.getPrice() * <span class="number">0.9</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="✏️附：ASM中访问者模式的使用Demo"><a href="#✏️附：ASM中访问者模式的使用Demo" class="headerlink" title="✏️附：ASM中访问者模式的使用Demo"></a>✏️附：ASM中访问者模式的使用Demo</h2><h3 id="No-1-读取Class文件"><a href="#No-1-读取Class文件" class="headerlink" title="No 1. 读取Class文件"></a>No 1. 读取Class文件</h3><h4 id="ClassPrinter类"><a href="#ClassPrinter类" class="headerlink" title="ClassPrinter类"></a>ClassPrinter类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.objectweb.asm.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.objectweb.asm.Opcodes.ASM4;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * ASM中的访问者模式Demo1：读取Class文件&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * REF：https://asm.ow2.io/asm4-guide.pdf 《2.2.2. Parsing classes》</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassPrinter</span> <span class="keyword">extends</span> <span class="title">ClassVisitor</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ClassPrinter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(ASM4);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visit</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">int</span> version,</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">int</span> access,</span></span></span><br><span class="line"><span class="params"><span class="function">      String name,</span></span></span><br><span class="line"><span class="params"><span class="function">      String signature,</span></span></span><br><span class="line"><span class="params"><span class="function">      String superName,</span></span></span><br><span class="line"><span class="params"><span class="function">      String[] interfaces)</span> </span>&#123;</span><br><span class="line">    System.out.println(name + <span class="string">&quot; extends &quot;</span> + superName + <span class="string">&quot; &#123;&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitSource</span><span class="params">(String source, String debug)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitOuterClass</span><span class="params">(String owner, String name, String desc)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> AnnotationVisitor <span class="title">visitAnnotation</span><span class="params">(String desc, <span class="keyword">boolean</span> visible)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitAttribute</span><span class="params">(Attribute attr)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitInnerClass</span><span class="params">(String name, String outerName, String innerName, <span class="keyword">int</span> access)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> FieldVisitor <span class="title">visitField</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">int</span> access, String name, String desc, String signature, Object value)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot; &quot;</span> + desc + <span class="string">&quot; &quot;</span> + name);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> MethodVisitor <span class="title">visitMethod</span><span class="params">(</span></span></span><br><span class="line"><span class="params"><span class="function">      <span class="keyword">int</span> access, String name, String desc, String signature, String[] exceptions)</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot; &quot;</span> + name + desc);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">visitEnd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;&#125;&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    ClassPrinter cp = <span class="keyword">new</span> ClassPrinter();</span><br><span class="line">    <span class="comment">//    ClassReader cr = new ClassReader(&quot;java.lang.Runnable&quot;);</span></span><br><span class="line">    ClassReader cr =</span><br><span class="line">        <span class="keyword">new</span> ClassReader(</span><br><span class="line">            ClassPrinter.class</span><br><span class="line">                .getClassLoader()</span><br><span class="line">                .getResourceAsStream(<span class="string">&quot;com/ldd/visitor/asm/v1/T1.CLASS&quot;</span>));</span><br><span class="line">    cr.accept(cp, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="T1类"><a href="#T1类" class="headerlink" title="T1类"></a>T1类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * View - SHow Bytecode&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * javap命令</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">T1</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="No-2-动态生成Class文件"><a href="#No-2-动态生成Class文件" class="headerlink" title="No 2. 动态生成Class文件"></a>No 2. 动态生成Class文件</h3><h4 id="ClassWriteTest"><a href="#ClassWriteTest" class="headerlink" title="ClassWriteTest"></a>ClassWriteTest</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import org.objectweb.asm.ClassWriter;</span><br><span class="line"></span><br><span class="line">import static org.objectweb.asm.Opcodes.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * ASM中的访问者模式Demo2：动态生成字节码&lt;br&gt;</span><br><span class="line"> * REF：https://asm.ow2.io/asm4-guide.pdf 《2.2.3. Generating classes》</span><br><span class="line"> *</span><br><span class="line"> * @author Miibo</span><br><span class="line"> * @version 1.0</span><br><span class="line"> * @date 2021/4/24</span><br><span class="line"> */</span><br><span class="line">public class ClassWriteTest &#123;</span><br><span class="line">  public static void main(String[] args) &#123;</span><br><span class="line">    ClassWriter cw = new ClassWriter(0);</span><br><span class="line">    // public interface Comparable</span><br><span class="line">    cw.visit(</span><br><span class="line">        V1_5,</span><br><span class="line">        ACC_PUBLIC + ACC_ABSTRACT + ACC_INTERFACE,</span><br><span class="line">        &quot;pkg/Comparable&quot;,</span><br><span class="line">        null,</span><br><span class="line">        &quot;java/lang/Object&quot;,</span><br><span class="line">        null);</span><br><span class="line">    // int LESS = -1;</span><br><span class="line">    cw.visitField(ACC_PUBLIC + ACC_FINAL + ACC_STATIC, &quot;LESS&quot;, &quot;I&quot;, null, -1).visitEnd();</span><br><span class="line">    // int EQUAL = 0;</span><br><span class="line">    cw.visitField(ACC_PUBLIC + ACC_FINAL + ACC_STATIC, &quot;EQUAL&quot;, &quot;I&quot;, null, 0).visitEnd();</span><br><span class="line">    // int GREATER = 1;</span><br><span class="line">    cw.visitField(ACC_PUBLIC + ACC_FINAL + ACC_STATIC, &quot;GREATER&quot;, &quot;I&quot;, null, 1).visitEnd();</span><br><span class="line">    // int compareTo(Object o);</span><br><span class="line">    cw.visitMethod(ACC_PUBLIC + ACC_ABSTRACT, &quot;compareTo&quot;, &quot;(Ljava/lang/Object;)I&quot;, null, null)</span><br><span class="line">        .visitEnd();</span><br><span class="line">    cw.visitEnd();</span><br><span class="line">    byte[] b = cw.toByteArray();</span><br><span class="line"></span><br><span class="line">    // 验证类：从字节码加载类，并打印类的第一个方法名</span><br><span class="line">    MyClassLoader myClassLoader = new MyClassLoader();</span><br><span class="line">    Class c = myClassLoader.defineClass(&quot;pkg.Comparable&quot;, b);</span><br><span class="line">    System.out.println(c.getMethods()[0].getName());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="MyClassLoader"><a href="#MyClassLoader" class="headerlink" title="MyClassLoader"></a>MyClassLoader</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义类加载器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 从字节数组中加载类</span></span><br><span class="line"><span class="comment">   *</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@date</span> 2021/4/24 21:48</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> name 类名</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> b 字节数组（class文件内容）</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span> 类</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> Class <span class="title">defineClass</span><span class="params">(String name, <span class="keyword">byte</span>[] b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> defineClass(name, b, <span class="number">0</span>, b.length);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="No-3-动态代理（访问者-责任链）"><a href="#No-3-动态代理（访问者-责任链）" class="headerlink" title="No 3. 动态代理（访问者+责任链）"></a>No 3. 动态代理（访问者+责任链）</h3><h4 id="ClassTransformerTest"><a href="#ClassTransformerTest" class="headerlink" title="ClassTransformerTest"></a>ClassTransformerTest</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">import com.ldd.visitor.asm.v1.ClassPrinter;</span><br><span class="line">import org.objectweb.asm.ClassReader;</span><br><span class="line">import org.objectweb.asm.ClassVisitor;</span><br><span class="line">import org.objectweb.asm.ClassWriter;</span><br><span class="line">import org.objectweb.asm.MethodVisitor;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileOutputStream;</span><br><span class="line"></span><br><span class="line">import static org.objectweb.asm.Opcodes.ASM4;</span><br><span class="line">import static org.objectweb.asm.Opcodes.INVOKESTATIC;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * ASM中的访问者模式Demo3：用asm生成动态代理（三厨狂喜：动态代理 + 访问者 + 责任链）&lt;br&gt;</span><br><span class="line"> * REF：https://asm.ow2.io/asm4-guide.pdf 《2.2.4. Transforming classes》</span><br><span class="line"> *</span><br><span class="line"> * @author Miibo</span><br><span class="line"> * @version 1.0</span><br><span class="line"> * @date 2021/4/24</span><br><span class="line"> */</span><br><span class="line">public class ClassTransformerTest &#123;</span><br><span class="line">  public static void main(String[] args) throws Exception &#123;</span><br><span class="line">    ClassReader cr =</span><br><span class="line">        new ClassReader(</span><br><span class="line">            ClassPrinter.class</span><br><span class="line">                .getClassLoader()</span><br><span class="line">                .getResourceAsStream(&quot;com/ldd/visitor/asm/v3/Tank.class&quot;));</span><br><span class="line"></span><br><span class="line">    ClassWriter cw = new ClassWriter(0);</span><br><span class="line">    ClassVisitor cv =</span><br><span class="line">        new ClassVisitor(ASM4, cw) &#123;</span><br><span class="line">          @Override</span><br><span class="line">          public MethodVisitor visitMethod(</span><br><span class="line">              int access, String name, String descriptor, String signature, String[] exceptions) &#123;</span><br><span class="line">            MethodVisitor mv = super.visitMethod(access, name, descriptor, signature, exceptions);</span><br><span class="line">            // return mv</span><br><span class="line">            return new MethodVisitor(ASM4, mv) &#123;</span><br><span class="line">              @Override</span><br><span class="line">              public void visitCode() &#123;</span><br><span class="line">                visitMethodInsn(INVOKESTATIC, &quot;TimeProxy&quot;, &quot;before&quot;, &quot;()V&quot;, false);</span><br><span class="line">                super.visitCode();</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    //    cr.accept(cw, 0); // 将源Tank类的class字节码读出</span><br><span class="line">    cr.accept(cv, 0); // 此处双厨狂喜，add责任链模式：cr -&gt; cv -&gt; cw</span><br><span class="line">    byte[] b2 = cw.toByteArray();</span><br><span class="line"></span><br><span class="line">    String path = (String) System.getProperties().get(&quot;user.dir&quot;);</span><br><span class="line">    File f = new File(path + &quot;/com/ldd/visitor/asm/v3/&quot;);</span><br><span class="line">    f.mkdirs();</span><br><span class="line"></span><br><span class="line">    FileOutputStream fos =</span><br><span class="line">        new FileOutputStream(new File(path + &quot;/com/ldd/visitor/asm/v3/Tank_0.class&quot;));</span><br><span class="line">    fos.write(b2);</span><br><span class="line">    fos.flush();</span><br><span class="line">    fos.close();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Tank"><a href="#Tank" class="headerlink" title="Tank"></a>Tank</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 被代理类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tank</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Tank moving kalakala...&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="TimeProxy"><a href="#TimeProxy" class="headerlink" title="TimeProxy"></a>TimeProxy</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 代理类</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> Miibo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2021/4/24</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeProxy</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;before ...&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/04/25/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91Builder-%E6%9E%84%E5%BB%BA%E8%80%85/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【设计模式】Builder-构建者</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/04/23/%E3%80%90%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%91Iterator-%E8%BF%AD%E4%BB%A3%E5%99%A8/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【设计模式】Iterator-迭代器</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'P5RW5gTg2cswKUcjK6dPU0gk-gzGzoHsz',
+                    appKey: 'CrV7lXyIp5uI6bwPVyv1xtYH',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😊 发一条友善的评论叭',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '巨大型面包菌';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">巨大型面包菌</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88Visitor-Pattern%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">访问者模式（Visitor Pattern）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8C%B0%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90%F0%9F%8C%B0"><span class="nav-number">1.1.</span> <span class="nav-text">🌰举个栗子🌰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9C%8F%EF%B8%8F%E9%99%84%EF%BC%9AASM%E4%B8%AD%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%BF%E7%94%A8Demo"><span class="nav-number">1.2.</span> <span class="nav-text">✏️附：ASM中访问者模式的使用Demo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#No-1-%E8%AF%BB%E5%8F%96Class%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.1.</span> <span class="nav-text">No 1. 读取Class文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ClassPrinter%E7%B1%BB"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">ClassPrinter类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#T1%E7%B1%BB"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">T1类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-2-%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90Class%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">No 2. 动态生成Class文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ClassWriteTest"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">ClassWriteTest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MyClassLoader"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">MyClassLoader</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-3-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%EF%BC%88%E8%AE%BF%E9%97%AE%E8%80%85-%E8%B4%A3%E4%BB%BB%E9%93%BE%EF%BC%89"><span class="nav-number">1.2.3.</span> <span class="nav-text">No 3. 动态代理（访问者+责任链）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ClassTransformerTest"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">ClassTransformerTest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tank"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Tank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TimeProxy"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">TimeProxy</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

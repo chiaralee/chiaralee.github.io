@@ -1,0 +1,18 @@
+html.page-home {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*background-image: url('/images/pexels-polina-tankilevitch-4523008.jpg');*/
+    background-color: transparent;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    /*background: linear-gradient( #1abc9c, transparent), linear-gradient( 90deg, skyblue, transparent), linear-gradient( -90deg, coral, transparent);*/
+    /*background: linear-gradient( #c6ffdd, transparent), linear-gradient( 90deg, #fbd786, transparent), linear-gradient( -90deg, #f7797d, transparent);*/
+    background-blend-mode: screen;
+
+    background: linear-gradient(to right, #FFEEEE, #DDEFBB);
+}

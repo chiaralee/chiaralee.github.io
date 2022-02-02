@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 页面点击小红心 -->
+    <script type="text/javascript" src="/js/love.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="巨大型面包菌">
+    
+    <title>
+        
+            npm vs yarn |
+        
+        Miibo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"chiaralee.gitee.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/favicon.ico","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"今天的你比昨天更博学了吗？"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.2"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Miibo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/category"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tag"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/category">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tag">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">npm vs yarn</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">巨大型面包菌</span>
+                        
+                            <span class="author-label">国家一级打瞌睡表演艺术家</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-10-21 10:12:54
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF%E6%A0%88/">前端技术栈</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/npm/">npm</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/yarn/">yarn</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>611 Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>REF：<a class="link"   target="_blank" rel="noopener" href="http://yarnpkg.top/CLI.html" >http://yarnpkg.top/CLI.html<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<h1 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h1><h2 id="常用镜像源们"><a href="#常用镜像源们" class="headerlink" title="常用镜像源们"></a>常用镜像源们</h2><ul>
+<li>npm —- <a class="link"   target="_blank" rel="noopener" href="https://registry.npmjs.org/" >https://registry.npmjs.org/<i class="fas fa-external-link-alt"></i></a></li>
+<li>cnpm —- <a class="link"   target="_blank" rel="noopener" href="https://r.cnpmjs.org/" >https://r.cnpmjs.org/<i class="fas fa-external-link-alt"></i></a></li>
+<li>taobao —- <a class="link"   target="_blank" rel="noopener" href="https://registry.npm.taobao.org/" >https://registry.npm.taobao.org/<i class="fas fa-external-link-alt"></i></a></li>
+<li>nj —- <a class="link"   target="_blank" rel="noopener" href="https://registry.nodejitsu.com/" >https://registry.nodejitsu.com/<i class="fas fa-external-link-alt"></i></a></li>
+<li>rednpm —- <a class="link"   target="_blank" rel="noopener" href="https://registry.mirror.cqupt.edu.cn/" >https://registry.mirror.cqupt.edu.cn/<i class="fas fa-external-link-alt"></i></a></li>
+<li>npmMirror —- <a class="link"   target="_blank" rel="noopener" href="https://skimdb.npmjs.com/registry/" >https://skimdb.npmjs.com/registry/<i class="fas fa-external-link-alt"></i></a></li>
+<li>deunpm —- <a class="link"   target="_blank" rel="noopener" href="http://registry.enpmjs.org/" >http://registry.enpmjs.org/<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h2 id="查看源和换源"><a href="#查看源和换源" class="headerlink" title="查看源和换源"></a>查看源和换源</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>npm</th>
+<th>yarn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看当前镜像源</td>
+<td>npm config get registry</td>
+<td>yarn config get registry</td>
+</tr>
+<tr>
+<td>设置镜像源</td>
+<td>npm config set registry <a class="link"   target="_blank" rel="noopener" href="https://registry.npm.taobao.org/" >https://registry.npm.taobao.org/<i class="fas fa-external-link-alt"></i></a></td>
+<td>yarn config set registry <a class="link"   target="_blank" rel="noopener" href="https://registry.npm.taobao.org/" >https://registry.npm.taobao.org/<i class="fas fa-external-link-alt"></i></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>还可以直接打开npm 配置文件设置源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config edit</span><br></pre></td></tr></table></figure>
+<h1 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>npm</th>
+<th>yarn</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目安装所有依赖</td>
+<td>npm [install/i]</td>
+<td>yarn</td>
+</tr>
+<tr>
+<td>项目卸载所有依赖</td>
+<td>npm [uninstall/un]</td>
+<td>yarn remove</td>
+</tr>
+<tr>
+<td>全局安装</td>
+<td>npm install <package...> [–-global/-g]</td>
+<td>yarn global add <package...></td>
+</tr>
+<tr>
+<td>安装依赖</td>
+<td>npm [install/i] <package...> [—save/-S]</td>
+<td>yarn add <package...></td>
+</tr>
+<tr>
+<td>开发模式安装依赖</td>
+<td>npm [install/i] <package...> [—save-dev/-D]</td>
+<td>yarn add <package...> [—dev/-D]</td>
+</tr>
+<tr>
+<td>卸载依赖</td>
+<td>npm [uninstall/un] <package...></td>
+<td>yarn remove <package...></td>
+</tr>
+<tr>
+<td>更新依赖</td>
+<td>npm update —save</td>
+<td>yarn upgrade</td>
+</tr>
+<tr>
+<td>全局更新</td>
+<td>npm update –-global</td>
+<td>yarn global upgrade</td>
+</tr>
+<tr>
+<td>清除缓存</td>
+<td>npm cache clean</td>
+<td>yarn cache clean</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="升级依赖包"><a href="#升级依赖包" class="headerlink" title="升级依赖包"></a>升级依赖包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 需要手动选择升级的依赖包，按空格键选择，a 键切换所有，i 键反选选择</span></span><br><span class="line">yarn upgrade-interactive --latest</span><br></pre></td></tr></table></figure>
+<h1 id="React-条件渲染"><a href="#React-条件渲染" class="headerlink" title="React 条件渲染"></a>React 条件渲染</h1><h2 id="JSX中的-if-else-语句"><a href="#JSX中的-if-else-语句" class="headerlink" title="JSX中的 if else 语句"></a>JSX中的 if else 语句</h2><p>在 JSX 中注入 if-else 语句仅适用于立即调用函数表达式（IIFE），如下：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    &#123;(() =&gt; &#123;</span></span><br><span class="line"><span class="xml">      if (flag) &#123;</span></span><br><span class="line"><span class="xml">        return <span class="tag">&lt;<span class="name">div</span>&gt;</span>hiahiahia.<span class="tag">&lt;/<span class="name">div</span>&gt;</span>;</span></span><br><span class="line"><span class="xml">      &#125;</span></span><br><span class="line"><span class="xml">    &#125;)()&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="JSX中的三元运算符"><a href="#JSX中的三元运算符" class="headerlink" title="JSX中的三元运算符"></a>JSX中的三元运算符</h2><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;flag ? <span class="tag">&lt;<span class="name">div</span>&gt;</span>hiahiahia.<span class="tag">&lt;/<span class="name">div</span>&gt;</span> : null&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>; </span><br></pre></td></tr></table></figure>
+<h2 id="JSX中的-amp-amp-运算符"><a href="#JSX中的-amp-amp-运算符" class="headerlink" title="JSX中的&amp;&amp;运算符"></a>JSX中的&amp;&amp;运算符</h2><p>当不必去执行”else”块中的代码时（即，else {null}），可使用 <code>&amp;&amp;</code> 运算符进行简单的条件渲染。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;flag &amp;&amp; <span class="tag">&lt;<span class="name">div</span>&gt;</span>hiahiahia.<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>; </span><br></pre></td></tr></table></figure>
+<h2 id="JSX中的switch语句"><a href="#JSX中的switch语句" class="headerlink" title="JSX中的switch语句"></a>JSX中的switch语句</h2><p>当有且只有一个变量作为判断条件时，可使用 <code>swtich</code> 进行多条件渲染。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    &#123;(() =&gt; &#123;</span></span><br><span class="line"><span class="xml">      switch (status) &#123;</span></span><br><span class="line"><span class="xml">        case &quot;success&quot;:</span></span><br><span class="line"><span class="xml">          return <span class="tag">&lt;<span class="name">div</span>&gt;</span>hiahiahia.<span class="tag">&lt;/<span class="name">div</span>&gt;</span>;</span></span><br><span class="line"><span class="xml">        case &quot;failed&quot;:</span></span><br><span class="line"><span class="xml">          return <span class="tag">&lt;<span class="name">div</span>&gt;</span>hiahiahiahia.<span class="tag">&lt;/<span class="name">div</span>&gt;</span>;</span></span><br><span class="line"><span class="xml">        default:</span></span><br><span class="line"><span class="xml">          return <span class="tag">&lt;<span class="name">div</span>&gt;</span>hiahiahiahiah.<span class="tag">&lt;/<span class="name">div</span>&gt;</span>;</span></span><br><span class="line"><span class="xml">      &#125;</span></span><br><span class="line"><span class="xml">    &#125;)()&#125;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">); </span><br></pre></td></tr></table></figure>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h1><h2 id="umijs-runtime-load-component-failed-Error-Module-“-hox”-does-not-exist-in-container"><a href="#umijs-runtime-load-component-failed-Error-Module-“-hox”-does-not-exist-in-container" class="headerlink" title="[@umijs/runtime] load component failed Error: Module “./hox” does not exist in container."></a>[@umijs/runtime] load component failed Error: Module “./hox” does not exist in container.</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>项目使用umi 框架，并使用 mfsu 开启了热更新，引入新的依赖包后，代码编译运行正常，但浏览器F12在Console出现异常打印：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devScripts.js:<span class="number">6523</span> [@umijs/runtime] load component failed <span class="built_in">Error</span>: Module <span class="string">&quot;./hox&quot;</span> does not exist <span class="keyword">in</span> container.</span><br><span class="line"><span class="keyword">while</span> loading <span class="string">&quot;./hox&quot;</span> <span class="keyword">from</span> webpack/container/reference/mf</span><br><span class="line">    at mf-va_remoteEntry.js:<span class="number">663</span> </span><br></pre></td></tr></table></figure>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>删除 <code>src/.umi</code> 文件夹，相当于清缓存</p>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/11/10/%E5%A4%9A%E7%89%88%E6%9C%ACgo%E7%8E%AF%E5%A2%83%E7%9A%84%E7%AE%A1%E7%90%86%E5%92%8C%E5%88%87%E6%8D%A2/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">多版本go环境的管理和切换</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/09/27/List%E3%80%81%E6%95%B0%E7%BB%84/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">List、数组</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'P5RW5gTg2cswKUcjK6dPU0gk-gzGzoHsz',
+                    appKey: 'CrV7lXyIp5uI6bwPVyv1xtYH',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😊 发一条友善的评论叭',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '巨大型面包菌';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">巨大型面包菌</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">1.</span> <span class="nav-text">镜像源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E9%95%9C%E5%83%8F%E6%BA%90%E4%BB%AC"><span class="nav-number">1.1.</span> <span class="nav-text">常用镜像源们</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%BA%90%E5%92%8C%E6%8D%A2%E6%BA%90"><span class="nav-number">1.2.</span> <span class="nav-text">查看源和换源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">依赖管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%87%E7%BA%A7%E4%BE%9D%E8%B5%96%E5%8C%85"><span class="nav-number">2.1.</span> <span class="nav-text">升级依赖包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#React-%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93"><span class="nav-number">3.</span> <span class="nav-text">React 条件渲染</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX%E4%B8%AD%E7%9A%84-if-else-%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.1.</span> <span class="nav-text">JSX中的 if else 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX%E4%B8%AD%E7%9A%84%E4%B8%89%E5%85%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.2.</span> <span class="nav-text">JSX中的三元运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX%E4%B8%AD%E7%9A%84-amp-amp-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.3.</span> <span class="nav-text">JSX中的&amp;&amp;运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JSX%E4%B8%AD%E7%9A%84switch%E8%AF%AD%E5%8F%A5"><span class="nav-number">3.4.</span> <span class="nav-text">JSX中的switch语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FAQ"><span class="nav-number">4.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#umijs-runtime-load-component-failed-Error-Module-%E2%80%9C-hox%E2%80%9D-does-not-exist-in-container"><span class="nav-number">4.1.</span> <span class="nav-text">[@umijs&#x2F;runtime] load component failed Error: Module “.&#x2F;hox” does not exist in container.</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">4.1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

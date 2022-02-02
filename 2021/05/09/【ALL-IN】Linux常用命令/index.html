@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 页面点击小红心 -->
+    <script type="text/javascript" src="/js/love.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="巨大型面包菌">
+    
+    <title>
+        
+            【ALL-IN】Linux常用命令 |
+        
+        Miibo&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"chiaralee.gitee.io","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.jpg","favicon":"/images/favicon.ico","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"今天的你比昨天更博学了吗？"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.2"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            <a class="logo-title" href="/">
+                Miibo&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/category"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tag"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/category">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tag">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">【ALL-IN】Linux常用命令</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">巨大型面包菌</span>
+                        
+                            <span class="author-label">国家一级打瞌睡表演艺术家</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-05-09 09:37:27
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Linux/">Linux</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/all-in/">all-in</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.7k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>8 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="基础组件安装"><a href="#基础组件安装" class="headerlink" title="基础组件安装"></a>基础组件安装</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># rz sz</span></span><br><span class="line">yum install lrzsz -y</span><br></pre></td></tr></table></figure>
+<h1 id="磁盘空间不足"><a href="#磁盘空间不足" class="headerlink" title="磁盘空间不足"></a>磁盘空间不足</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker</span></span><br><span class="line">docker system df -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看磁盘使用情况</span></span><br><span class="line">df -h</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前目录文件大小</span></span><br><span class="line">du -h --max-depth=1</span><br><span class="line"></span><br><span class="line"><span class="comment">#释放buff/cache</span></span><br><span class="line"><span class="built_in">echo</span> 1 &gt; /proc/sys/vm/drop_caches</span><br><span class="line"><span class="built_in">echo</span> 2 &gt; /proc/sys/vm/drop_caches</span><br><span class="line"><span class="built_in">echo</span> 3 &gt; /proc/sys/vm/drop_caches</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空文件内容</span></span><br><span class="line">cat /dev/null &gt; file_name</span><br></pre></td></tr></table></figure>
+<p>虚拟机重命名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostname NewName</span><br></pre></td></tr></table></figure>
+<p>git clone 报错时：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access <span class="string">&#x27;http://gitlab.miibo.com/Demo.git/&#x27;</span>: server certificate verification failed. CAfile: none CRLfile: none</span><br></pre></td></tr></table></figure>
+<p>解决方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方法一</span></span><br><span class="line"><span class="built_in">export</span> GIT_SSL_NO_VERIFY=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方法二</span></span><br><span class="line">git config --global http.sslverify <span class="literal">false</span></span><br><span class="line">git config --global https.sslverify <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<h1 id="Linux查看版本当前操作系统发行版信息"><a href="#Linux查看版本当前操作系统发行版信息" class="headerlink" title="Linux查看版本当前操作系统发行版信息"></a>Linux查看版本当前操作系统发行版信息</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cat /etc/issue </span></span><br><span class="line">Welcome to Alpine Linux 3.9</span><br><span class="line">Kernel \r on an \m (\l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># cat /etc/redhat-release</span></span><br><span class="line">CentOS Linux release 7.6.1810 (Core) </span><br></pre></td></tr></table></figure>
+<p>[Git]重设和永久保存用户名密码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 清除掉缓存在git中的用户名和密码</span></span><br><span class="line">git credential-manager uninstall</span><br><span class="line"><span class="comment"># 运行一下命令缓存输入的用户名和密码</span></span><br><span class="line">git config --global credential.helper wincred</span><br><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+<p>清空文件内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 举个栗子：清空mail/root文件内容</span></span><br><span class="line">cat /dev/null &gt; /var/spool/mail/root</span><br></pre></td></tr></table></figure>
+<p>Crontab服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CentOS 6</span></span><br><span class="line"><span class="comment"># 重启crond服务</span></span><br><span class="line">/etc/init.d/crond restart</span><br><span class="line"><span class="comment"># crond服务运行状态查询</span></span><br><span class="line">/etc/init.d/crond status</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS 7</span></span><br><span class="line"><span class="comment"># 重启crond服务</span></span><br><span class="line">systemctl restart crond</span><br><span class="line"><span class="comment"># crond服务运行状态查询</span></span><br><span class="line">systemctl status crond</span><br></pre></td></tr></table></figure>
+<h1 id="时间（timedatectl命令-tzselect命令）"><a href="#时间（timedatectl命令-tzselect命令）" class="headerlink" title="时间（timedatectl命令/tzselect命令）"></a>时间（timedatectl命令/tzselect命令）</h1><h2 id="tzselect命令"><a href="#tzselect命令" class="headerlink" title="tzselect命令"></a>tzselect命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 国家、地区查找timezone（查找巴塞罗那timezone）</span></span><br><span class="line">tzselect</span><br><span class="line"><span class="comment"># Please identify a location so that time zone rules can be set correctly.</span></span><br><span class="line"><span class="comment"># Please select a continent or ocean.</span></span><br><span class="line"><span class="comment">#  1) Africa</span></span><br><span class="line"><span class="comment">#  2) Americas</span></span><br><span class="line"><span class="comment">#  3) Antarctica</span></span><br><span class="line"><span class="comment">#  4) Arctic Ocean</span></span><br><span class="line"><span class="comment">#  5) Asia</span></span><br><span class="line"><span class="comment">#  6) Atlantic Ocean</span></span><br><span class="line"><span class="comment">#  7) Australia</span></span><br><span class="line"><span class="comment">#  8) Europe</span></span><br><span class="line"><span class="comment">#  9) Indian Ocean</span></span><br><span class="line"><span class="comment"># 10) Pacific Ocean</span></span><br><span class="line"><span class="comment"># 11) none - I want to specify the time zone using the Posix TZ format.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择大洲：Europe，输入8</span></span><br><span class="line">8</span><br><span class="line"><span class="comment"># Please select a country.</span></span><br><span class="line"><span class="comment">#  1) Albania		  18) Guernsey		    35) Poland</span></span><br><span class="line"><span class="comment">#  2) Andorra		  19) Hungary		    36) Portugal</span></span><br><span class="line"><span class="comment">#  3) Austria		  20) Ireland		    37) Romania</span></span><br><span class="line"><span class="comment">#  4) Belarus		  21) Isle of Man	    38) Russia</span></span><br><span class="line"><span class="comment">#  5) Belgium		  22) Italy		    39) San Marino</span></span><br><span class="line"><span class="comment">#  6) Bosnia &amp; Herzegovina  23) Jersey		    40) Serbia</span></span><br><span class="line"><span class="comment">#  7) Britain (UK)	  24) Latvia		    41) Slovakia</span></span><br><span class="line"><span class="comment">#  8) Bulgaria		  25) Liechtenstein	    42) Slovenia</span></span><br><span class="line"><span class="comment">#  9) Croatia		  26) Lithuania		    43) Spain</span></span><br><span class="line"><span class="comment"># 10) Czech Republic	  27) Luxembourg	    44) Sweden</span></span><br><span class="line"><span class="comment"># 11) Denmark		  28) Malta		    45) Switzerland</span></span><br><span class="line"><span class="comment"># 12) Estonia		  29) Moldova		    46) Turkey</span></span><br><span class="line"><span class="comment"># 13) Finland		  30) Monaco		    47) Ukraine</span></span><br><span class="line"><span class="comment"># 14) France		  31) Montenegro	    48) Vatican City</span></span><br><span class="line"><span class="comment"># 15) Germany		  32) Netherlands	    49) Åland Islands</span></span><br><span class="line"><span class="comment"># 16) Gibraltar		  33) North Macedonia</span></span><br><span class="line"><span class="comment"># 17) Greece		  34) Norway</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择国家：Spain，输入43</span></span><br><span class="line">43</span><br><span class="line"><span class="comment"># Please select one of the following time zone regions.</span></span><br><span class="line"><span class="comment"># 1) Spain (mainland)</span></span><br><span class="line"><span class="comment"># 2) Ceuta, Melilla</span></span><br><span class="line"><span class="comment"># 3) Canary Islands</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择Spain (mainland)，输入1，获取timezone</span></span><br><span class="line">1</span><br><span class="line"><span class="comment"># The following information has been given:</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 	Spain</span></span><br><span class="line"><span class="comment"># 	Spain (mainland)</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Therefore TZ=&#x27;Europe/Madrid&#x27; will be used.</span></span><br><span class="line"><span class="comment"># Local time is now:	Fri Aug 13 04:11:08 CEST 2021.</span></span><br><span class="line"><span class="comment"># Universal Time is now:	Fri Aug 13 02:11:08 UTC 2021.</span></span><br><span class="line"><span class="comment"># Is the above information OK?</span></span><br><span class="line"><span class="comment"># 1) Yes</span></span><br><span class="line"><span class="comment"># 2) No</span></span><br><span class="line">1</span><br><span class="line"><span class="comment"># You can make this change permanent for yourself by appending the line</span></span><br><span class="line"><span class="comment"># 	TZ=&#x27;Europe/Madrid&#x27;; export TZ</span></span><br><span class="line"><span class="comment"># to the file &#x27;.profile&#x27; in your home directory; then log out and log in again.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Here is that TZ value again, this time on standard output so that you</span></span><br><span class="line"><span class="comment"># can use the /usr/bin/tzselect command in shell scripts:</span></span><br><span class="line"><span class="comment"># Europe/Madrid</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="timedatectl命令"><a href="#timedatectl命令" class="headerlink" title="timedatectl命令"></a>timedatectl命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关键字查找timezone</span></span><br><span class="line">timedatectl list-timezones  | grep <span class="string">&quot;Asia/S&quot;</span></span><br><span class="line"><span class="comment"># Asia/Sakhalin</span></span><br><span class="line"><span class="comment"># Asia/Samarkand</span></span><br><span class="line"><span class="comment"># Asia/Seoul</span></span><br><span class="line"><span class="comment"># Asia/Shanghai</span></span><br><span class="line"><span class="comment"># Asia/Singapore</span></span><br><span class="line"><span class="comment"># Asia/Srednekolymsk</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看当前的时区</span></span><br><span class="line">timedatectl status</span><br><span class="line"><span class="comment">#       Local time: Fri 2021-08-13 10:04:30 CST</span></span><br><span class="line"><span class="comment">#   Universal time: Fri 2021-08-13 02:04:30 UTC</span></span><br><span class="line"><span class="comment">#         RTC time: Fri 2021-08-13 02:04:30</span></span><br><span class="line"><span class="comment">#        Time zone: Asia/Shanghai (CST, +0800)</span></span><br><span class="line"><span class="comment">#      NTP enabled: no</span></span><br><span class="line"><span class="comment"># NTP synchronized: yes</span></span><br><span class="line"><span class="comment">#  RTC in local TZ: no</span></span><br><span class="line"><span class="comment">#       DST active: n/a</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置东八区</span></span><br><span class="line">timedatectl set-timezone <span class="string">&quot;Asia/Shanghai&quot;</span></span><br></pre></td></tr></table></figure>
+<h1 id="路由跟踪"><a href="#路由跟踪" class="headerlink" title="路由跟踪"></a>路由跟踪</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tracepath/traceroute &#123;ip&#125;/&#123;host&#125;</span></span><br><span class="line">tracepath www.baidu.com</span><br><span class="line">tracepath 180.101.49.12</span><br></pre></td></tr></table></figure>
+<h1 id="删除带问号的文件"><a href="#删除带问号的文件" class="headerlink" title="删除带问号的文件"></a>删除带问号的文件</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到文件的inode号</span></span><br><span class="line">ls -li</span><br><span class="line"><span class="comment">#  123 -rw-r--r--   1 root root        0 Aug 19 11:32 ??</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过inode号删除文件（123为文件inode号）</span></span><br><span class="line">find ./ -inum 123 -<span class="built_in">exec</span> rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<h1 id="mvn"><a href="#mvn" class="headerlink" title="mvn"></a>mvn</h1><h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>文件位置：</p>
+<p>全局配置:  <code>$&#123;M2_HOME&#125;/conf/settings.xml</code></p>
+<p>用户配置:  <code>$&#123;user.home&#125;/.m2/settings.xml</code></p>
+<p><code>用户配置</code> 优先于 <code>全局配置</code></p>
+<h2 id="Maven-FAQ"><a href="#Maven-FAQ" class="headerlink" title="Maven FAQ"></a>Maven FAQ</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># maven本地库已经有的包了，不下载（linux环境） REF:https://blog.csdn.net/whq12789/article/details/105429703</span></span><br><span class="line">find . -name <span class="string">&#x27;_remote.repositories&#x27;</span> -delete</span><br></pre></td></tr></table></figure>
+<h1 id="压缩-amp-解压"><a href="#压缩-amp-解压" class="headerlink" title="压缩&amp;解压"></a>压缩&amp;解压</h1><h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 压缩</span></span><br><span class="line">tar -czvf node_modules.tar.gz node_modules </span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xzvf node_modules.tar.gz </span><br></pre></td></tr></table></figure>
+<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><h3 id="zip-参数-打包后的文件名-打包的目录路径"><a href="#zip-参数-打包后的文件名-打包的目录路径" class="headerlink" title="zip [参数] [打包后的文件名] [打包的目录路径]"></a>zip [参数] [打包后的文件名] [打包的目录路径]</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">zip -qr demo.zip demo/</span><br><span class="line"></span><br><span class="line">-a 将文件转成ASCII模式</span><br><span class="line">-F 尝试修复损坏的压缩文件</span><br><span class="line">-h 显示帮助界面</span><br><span class="line">-m 将文件压缩之后，删除源文件</span><br><span class="line">-n 特定字符串 不压缩具有特定字尾字符串的文件</span><br><span class="line">-o 将压缩文件内的所有文件的最新变动时间设为压缩时候的时间</span><br><span class="line">-q 安静模式，在压缩的时候不显示指令的执行过程</span><br><span class="line">-r 将指定的目录下的所有子目录以及文件一起处理</span><br><span class="line">-S 包含系统文件和隐含文件（S是大写）</span><br><span class="line">-t 日期 把压缩文件的最后修改日期设为指定的日期，日期格式为mmddyyyy</span><br></pre></td></tr></table></figure>
+<h3 id="unzip-cflptuvz-agCjLMnoqsVX-P-lt-密码-gt-zip文件-文件-d-lt-目-录-gt-x-lt-文件-gt-或-unzip-Z"><a href="#unzip-cflptuvz-agCjLMnoqsVX-P-lt-密码-gt-zip文件-文件-d-lt-目-录-gt-x-lt-文件-gt-或-unzip-Z" class="headerlink" title="unzip [-cflptuvz] [-agCjLMnoqsVX] [-P&lt;密码&gt;] [.zip文件] [文件] [-d&lt;目 录&gt;] [-x&lt;文件&gt;] 或 unzip [-Z]"></a>unzip [-cflptuvz] [-agCjLMnoqsVX] [-P&lt;密码&gt;] [.zip文件] [文件] [-d&lt;目 录&gt;] [-x&lt;文件&gt;] 或 unzip [-Z]</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">unzip -q demo.zip</span><br><span class="line"></span><br><span class="line">-c 将解压缩的结果显示到屏幕上，并对字符做适当的转换。</span><br><span class="line">-f 更新现有的文件。</span><br><span class="line">-l 显示压缩文件内所包含的文件。</span><br><span class="line">-p 与-c参数类似，会将解压缩的结果显示到屏幕上，但不会执行任何的转换。</span><br><span class="line">-t 检查压缩文件是否正确。</span><br><span class="line">-u 与-f参数类似，但是除了更新现有的文件外，也会将压缩文件中的其他文件解压缩到目录中。</span><br><span class="line">-v 执行是时显示详细的信息。</span><br><span class="line">-z 仅显示压缩文件的备注文字。</span><br><span class="line">-a 对文本文件进行必要的字符转换。</span><br><span class="line">-b 不要对文本文件进行字符转换。</span><br><span class="line">-C 压缩文件中的文件名称区分大小写。</span><br><span class="line">-j 不处理压缩文件中原有的目录路径。</span><br><span class="line">-L 将压缩文件中的全部文件名改为小写。</span><br><span class="line">-M 将输出结果送到more程序处理。</span><br><span class="line">-n 解压缩时不要覆盖原有的文件。</span><br><span class="line">-o 不必先询问用户，unzip执行后覆盖原有文件。</span><br><span class="line">-P&lt;密码&gt; 使用zip的密码选项。</span><br><span class="line">-q 执行时不显示任何信息。</span><br><span class="line">-s 将文件名中的空白字符转换为底线字符。</span><br><span class="line">-V 保留VMS的文件版本信息。</span><br><span class="line">-X 解压缩时同时回存文件原来的UID/GID。</span><br><span class="line">[.zip文件] 指定.zip压缩文件。</span><br><span class="line">[文件] 指定要处理.zip压缩文件中的哪些文件。</span><br><span class="line">-d&lt;目录&gt; 指定文件解压缩后所要存储的目录。</span><br><span class="line">-x&lt;文件&gt; 指定不要处理.zip压缩文件中的哪些文件。</span><br><span class="line">-Z unzip -Z等于执行zipinfo指令</span><br></pre></td></tr></table></figure>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git提交shell脚本格式转换的问题"><a href="#git提交shell脚本格式转换的问题" class="headerlink" title="git提交shell脚本格式转换的问题"></a>git提交shell脚本格式转换的问题</h2><p>提示如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">warinig: LF will be replaced by CRLF <span class="keyword">in</span> xxx.sh</span><br></pre></td></tr></table></figure>
+<p>解：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line">git config --global core.safecrlf <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 含义：</span></span><br><span class="line"><span class="comment">## AutoCRLF</span></span><br><span class="line"><span class="comment">### 提交时转换为LF，检出时转换为CRLF</span></span><br><span class="line">git config --global core.autocrlf <span class="literal">true</span></span><br><span class="line"><span class="comment">### 提交时转换为LF，检出时不转换</span></span><br><span class="line">git config --global core.autocrlf input</span><br><span class="line"><span class="comment">### 提交检出均不转换</span></span><br><span class="line">git config --global core.autocrlf <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## SafeCRLF</span></span><br><span class="line"><span class="comment">### 拒绝提交包含混合换行符的文件</span></span><br><span class="line">git config --global core.safecrlf <span class="literal">true</span></span><br><span class="line"><span class="comment">### 允许提交包含混合换行符的文件</span></span><br><span class="line">git config --global core.safecrlf <span class="literal">false</span></span><br><span class="line"><span class="comment">### 提交包含混合换行符的文件时给出警告</span></span><br><span class="line">git config --global core.safecrlf warn</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2021/05/10/%E3%80%90Spring%E3%80%91AbstractApplicationContext/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">【Spring】AbstractApplicationContext</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/05/08/Alpine-Linux/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Alpine Linux</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;Comments</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'P5RW5gTg2cswKUcjK6dPU0gk-gzGzoHsz',
+                    appKey: 'CrV7lXyIp5uI6bwPVyv1xtYH',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😊 发一条友善的评论叭',
+                    lang: 'en'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = '巨大型面包菌';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>&nbsp;-&nbsp;
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">巨大型面包菌</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.2</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">基础组件安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3"><span class="nav-number">2.</span> <span class="nav-text">磁盘空间不足</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC%E5%BD%93%E5%89%8D%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%A1%8C%E7%89%88%E4%BF%A1%E6%81%AF"><span class="nav-number">3.</span> <span class="nav-text">Linux查看版本当前操作系统发行版信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%EF%BC%88timedatectl%E5%91%BD%E4%BB%A4-tzselect%E5%91%BD%E4%BB%A4%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">时间（timedatectl命令&#x2F;tzselect命令）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tzselect%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">tzselect命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#timedatectl%E5%91%BD%E4%BB%A4"><span class="nav-number">4.2.</span> <span class="nav-text">timedatectl命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%B7%9F%E8%B8%AA"><span class="nav-number">5.</span> <span class="nav-text">路由跟踪</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E5%B8%A6%E9%97%AE%E5%8F%B7%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">6.</span> <span class="nav-text">删除带问号的文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mvn"><span class="nav-number">7.</span> <span class="nav-text">mvn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">7.1.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven-FAQ"><span class="nav-number">7.2.</span> <span class="nav-text">Maven FAQ</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9-amp-%E8%A7%A3%E5%8E%8B"><span class="nav-number">8.</span> <span class="nav-text">压缩&amp;解压</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tar"><span class="nav-number">8.1.</span> <span class="nav-text">tar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zip"><span class="nav-number">8.2.</span> <span class="nav-text">zip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zip-%E5%8F%82%E6%95%B0-%E6%89%93%E5%8C%85%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D-%E6%89%93%E5%8C%85%E7%9A%84%E7%9B%AE%E5%BD%95%E8%B7%AF%E5%BE%84"><span class="nav-number">8.2.1.</span> <span class="nav-text">zip [参数] [打包后的文件名] [打包的目录路径]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unzip-cflptuvz-agCjLMnoqsVX-P-lt-%E5%AF%86%E7%A0%81-gt-zip%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6-d-lt-%E7%9B%AE-%E5%BD%95-gt-x-lt-%E6%96%87%E4%BB%B6-gt-%E6%88%96-unzip-Z"><span class="nav-number">8.2.2.</span> <span class="nav-text">unzip [-cflptuvz] [-agCjLMnoqsVX] [-P&lt;密码&gt;] [.zip文件] [文件] [-d&lt;目 录&gt;] [-x&lt;文件&gt;] 或 unzip [-Z]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">9.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E6%8F%90%E4%BA%A4shell%E8%84%9A%E6%9C%AC%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">9.1.</span> <span class="nav-text">git提交shell脚本格式转换的问题</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
